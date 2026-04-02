@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traductor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Traductor de voz</h1>
+            <p class="instructions">
+                <strong>Instrucciones:</strong> Presiona "Hablar" y dicta tu mensaje en español. Después de que se
+                reconozca el texto y se muestre en la caja, selecciona el idioma de destino y el sistema te mostrará la
+                traducción y la reproducirá en voz
+                alta.
+            </p>
+        </header>
+
+        <div class="translator-panel">
+            <div class="input-section">
+                <h2>Entrada (Español)</h2>
+                <button id="btn-speak" class="action-btn primary">Hablar</button>
+                <textarea id="txt-spanish" placeholder="Aquí aparecerá escrito lo que digas" readonly></textarea>
+            </div>
+
+            <div class="controls-section">
+                <label for="lang-select">Taducir a:</label>
+                <select id="lang-select">
+                    <option value="en-US">🇺🇸 Inglés</option>
+                    <option value="fr-FR">🇫🇷 Francés</option>
+                    <option value="el-GR">🇬🇷 Griego</option>
+                </select>
+            </div>
+
+            <div class="output-section">
+                <h2>Salida (Traducción)</h2>
+                <textarea id="txt-translated" placeholder="Aquí aparecerá el texto traducido" readonly></textarea>
+                <button id="btn-play" class="action-btn secondary">Reproducir Traducción</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
