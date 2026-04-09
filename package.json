@@ -1,0 +1,23 @@
+{
+  "name": "proyectos_sc",
+  "version": "1.0.0",
+  "description": "1. **Localizar el archivo .env.example**\r  2. **Colocar en la variable \"AZURE_SPEECH_KEY\" la API KEY**\r  3. **COPIAR Y RENOMBRAR** el archivo .env.example a .env\r     - Esto ayuda a que el archivo .gitignore no suba la API KEY al repositorio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PablitoMix123Bv/Proyecto_SC2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PablitoMix123Bv/Proyecto_SC2/issues"
+  },
+  "homepage": "https://github.com/PablitoMix123Bv/Proyecto_SC2#readme",
+  "dependencies": {
+    "microsoft-cognitiveservices-speech-sdk": "^1.49.0"
+  }
+}

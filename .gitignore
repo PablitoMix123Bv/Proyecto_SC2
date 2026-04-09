@@ -1,2 +1,8 @@
-#Ocultamiento de las API KEYS
-.env
+# Ignorar dependencias pesadas
+node_modules/
+
+# Ignorar las llaves reales de Azure
+config.js
+
+# Archivos de configuración del editor
+.vscode/
