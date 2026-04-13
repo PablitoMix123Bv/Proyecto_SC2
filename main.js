@@ -44,12 +44,32 @@ btnPlay.addEventListener("click", () => {
     reproducirTraduccion(AZURE_CONFIG, texto, idiomaDestino);
 });
 
-const iniciarEscucha = async () => {
+const iniciarEscucha = () => {
     // Pasamos todos los idiomas disponibles
+    if(recognizer) {
+        recognizeer.close();
+        recognizer = null;
+    }
+
     const configTraduccion = prepararConfiguracionTraduccion(AZURE_CONFIG, IDIOMAS_DISPONIBLES);
-    const AudioConfig =  await obtenerMicrofono();
+    const AudioConfig = obtenerMicrofono();
 
     recognizer = new sdk.TranslationRecognizer(configTraduccion, AudioConfig);
+
+    recognizer.canceled = (s, e) => {
+        console.error("Reconocimiento cancelado: ", e);
+
+        if (e.reason === sdk.CancellationReason.Error){
+            console.error("Detalles del error: ", e.errorDetails);
+            if (e.errorDetails?.toLowerCase().includes("permission")){
+                alert("Acceso a microfono denegado");
+            } else if (e.errorDetails?.toLowerCase().includes("microphone")){
+                alert("Problemas con el microfono");
+            } else{
+                alert("Error con el reconocimiento de voz");
+            }
+        }
+    };
 
     recognizer.recognizing = (s, e) => {
         if (e.result.reason === sdk.ResultReason.TranslatingSpeech) {
@@ -78,7 +98,19 @@ const iniciarEscucha = async () => {
         }
     };
 
-    recognizer.startContinuousRecognitionAsync();
+    recognizer.startContinuousRecognitionAsync(
+        () => {
+            console.Console.og("Reconocimiento iniciado");
+        },
+        (err) => {
+            console.error("Error al iniciar: ", err);
+            if (err && err.toString().toLowerCase().includes("permission")) {
+            alert("Acceso a micrófono denegado");
+            } else {
+                console.warn("Error no crítico al iniciar");
+            }
+        }
+    );
     escuchando = true;
     btnHablar.textContent = "Detener";
     btnHablar.style.backgroundColor = "#555";
