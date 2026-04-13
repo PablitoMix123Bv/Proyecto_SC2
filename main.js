@@ -44,10 +44,10 @@ btnPlay.addEventListener("click", () => {
     reproducirTraduccion(AZURE_CONFIG, texto, idiomaDestino);
 });
 
-const iniciarEscucha = () => {
+const iniciarEscucha = async () => {
     // Pasamos todos los idiomas disponibles
     const configTraduccion = prepararConfiguracionTraduccion(AZURE_CONFIG, IDIOMAS_DISPONIBLES);
-    const AudioConfig = obtenerMicrofono();
+    const AudioConfig =  obtenerMicrofono();
 
     recognizer = new sdk.TranslationRecognizer(configTraduccion, AudioConfig);
 
