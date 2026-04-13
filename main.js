@@ -47,7 +47,7 @@ btnPlay.addEventListener("click", () => {
 const iniciarEscucha = async () => {
     // Pasamos todos los idiomas disponibles
     const configTraduccion = prepararConfiguracionTraduccion(AZURE_CONFIG, IDIOMAS_DISPONIBLES);
-    const AudioConfig =  obtenerMicrofono();
+    const AudioConfig =  await obtenerMicrofono();
 
     recognizer = new sdk.TranslationRecognizer(configTraduccion, AudioConfig);
 
