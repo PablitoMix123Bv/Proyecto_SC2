@@ -9,12 +9,12 @@ Módulo de Transcripción (transcriber.js): Responsabilidad de la Persona 1. Se 
 
 Módulo de Traducción (translator.js): Responsabilidad de la Persona 2 (PablitoMixBv). Gestiona la conexión con el motor de traducción de Azure y la configuración de los idiomas destino (Inglés, Francés, Griego).
 
-Módulo de Síntesis (synthesizer.js): Responsabilidad de la Persona 3. Encargado de tomar el texto traducido y convertirlo en audio para la reproducción final (Fase pendiente).
+Módulo de Síntesis (synthesizer.js): Responsabilidad de la Persona 3. (Isaac) Encargado de tomar el texto traducido y convertirlo en audio para la reproducción final (Fase pendiente).
 
-**Para añadir más idomas solo basta con añadir más opcinoes desde la lista del HTML**
+**El traductor permite traducir del español a 11 diferentes idiomas**
 
 >[!NOTE]
->Mejoras para el módulo de transcripción: manejar errores si el usuario deniega el permiso del micrófono, investigar y aplicar filtros de ruidoo o configuraciones de audio avanzado, crear una función que escuche y devuelva el texto en español
+>Mejoras para el módulo de transcripción: manejar errores si el usuario deniega el permiso del micrófono, investigar y aplicar filtros de ruidoo o configuraciones de audio avanzado.
 
 >[!CAUTION]
 >Debes renombrar el archivo config.example.js por config.js ya que ahí se almacenan la apikey y la región
